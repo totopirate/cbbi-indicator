@@ -2,8 +2,11 @@ name: Mise à jour CBBI Zones
 
 on:
   schedule:
-    - cron: '* * * * *'   # Toutes les minutes (tu pourras changer en '0 3 * * *' pour 3h du matin)
-  workflow_dispatch:      # Permet d’exécuter manuellement
+    - cron: '* * * * *'   # Toutes les minutes (à changer en '0 3 * * *' pour 3h du matin)
+  workflow_dispatch:      # Exécution manuelle possible
+
+permissions:
+  contents: write         # Permission d'écriture sur le repo
 
 jobs:
   update-zones:
@@ -12,6 +15,8 @@ jobs:
     steps:
       - name: Cloner le dépôt
         uses: actions/checkout@v3
+        with:
+          ref: main         # Forcer le checkout de la branche main
 
       - name: Installer Node.js
         uses: actions/setup-node@v3
@@ -24,11 +29,13 @@ jobs:
       - name: Lancer le script cbbi-zone-detector.js
         run: node Btc/Fibo-zones/cbbi-zone-detector.js
 
+      - name: Vérifier branche active
+        run: git branch
+
       - name: Configurer git et push les changements
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git checkout -B main
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add .
