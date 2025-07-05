@@ -1,0 +1,233 @@
+
+
+  <!-- ======================================================================================================================== -->
+  <!--                                                    1 , 2 , 3 , 4 , 5 , 6                                                 -->
+  <!-- ======================================================================================================================== -->
+
+
+  <!-- ======================================================================================================================== -->
+  <!--                                       1 : STYLES GÉNÉRAUX                                                                -->
+  <!-- ======================================================================================================================== -->
+  <!-- ======================================================================================================================== -->
+  <!--                                       2 : TITRE PRINCIPAL DU DASHBOARD                                                   -->
+  <!-- ======================================================================================================================== -->
+  <!-- ======================================================================================================================== -->
+  <!--                                       3 : CONTRÔLES POUR LA SÉLECTION DES VALEURS FIBONACCI                              -->
+  <!-- ======================================================================================================================== -->
+  <!-- ======================================================================================================================== -->
+  <!--                                       4 : GRAPHIQUES CBBI ET BTC                                                         -->
+  <!-- ======================================================================================================================== -->
+  <!-- ======================================================================================================================== -->
+  <!--                                       5 : FOOTER - CONTRÔLES DES COULEURS ET ÉCHELLES                                    -->
+  <!-- ======================================================================================================================== -->
+  <!-- ======================================================================================================================== -->
+  <!--                                       6 : SCRIPTS IMPORTÉS (MODULES JS)                                                  -->
+  <!-- ======================================================================================================================== -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Graphique CBBI + Fibonacci + BTC avec échelle log/ar</title>
+  <script src="https://unpkg.com/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.js"></script>
+
+  <!-- ======================================================================================================================== -->
+  <!--                                       1 : STYLES GÉNÉRAUX                                                                -->
+  <!-- ======================================================================================================================== -->
+
+
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 20px; 
+      background-color: #f0f2f5; 
+      min-height: 150vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #chart {
+      width: 100%; 
+      height: 500px; 
+      margin-top: 20px;
+      flex-shrink: 0;
+      background: white;
+      border: 1px solid #ccc;
+    }
+
+    label, input, button, select {
+      margin: 5px; 
+      font-size: 14px;
+    }
+
+    #spacer {
+      height: 500px;
+    }
+
+    footer {
+      background: #fff;
+      padding: 15px 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    #colorControls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+      min-width: 250px;
+      flex-grow: 1;
+    }
+
+    #colorControls label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      user-select: none;
+      min-width: 140px;
+    }
+
+    #colorControls input[type=color] {
+      width: 40px;
+      height: 24px;
+      padding: 0;
+      border: none;
+      cursor: pointer;
+    }
+
+    #colorControls input[type=range] {
+      width: 100px;
+      cursor: pointer;
+    }
+
+    .opacity-label {
+      min-width: 50px;
+      font-size: 12px;
+      color: #444;
+      user-select: none;
+    }
+
+    #scaleControlWrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      min-width: 140px;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <!-- ======================================================================================================================== -->
+  <!--                                       2 : TITRE PRINCIPAL DU DASHBOARD                                                   -->
+  <!-- ======================================================================================================================== -->
+  <h2>Graphique CBBI + Fibonacci retracement / BTC Color CBBI </h2>
+
+
+
+  <!-- ======================================================================================================================== -->
+  <!--                                       3 : CONTRÔLES POUR LA SÉLECTION DES VALEURS FIBONACCI                              -->
+  <!-- ======================================================================================================================== -->
+
+
+  <div>
+    <label for="value1">Valeur Cbbi Fibo point 1 :</label>
+    <input type="number" id="value1" step="0.01" value="100" />
+    <label for="value2">Valeur Cbbi Fibo point 2 :</label>
+    <input type="number" id="value2" step="0.01" value="0.45" />
+
+    <button id="btnDrawFibo">Tracer Fibonacci</button>
+    <button id="btnClearFibo">Supprimer Fibonacci</button>
+  </div>
+
+
+
+  <!-- ======================================================================================================================== -->
+  <!--                                       4 : GRAPHIQUES CBBI ET BTC                                                         -->
+  <!-- ======================================================================================================================== -->
+
+
+  <div id="chart"></div>
+  <div id="chartBTC" style="width: 100%; height: 500px;"></div>
+  
+
+
+
+  <!-- ======================================================================================================================== -->
+  <!--                                       5 : FOOTER - CONTRÔLES DES COULEURS ET ÉCHELLES                                    -->
+  <!-- ======================================================================================================================== -->
+
+
+  <footer>
+    <div id="colorControls">
+      <!-- ✅ Contrôles de couleur et d’opacité générés dynamiquement -->
+    </div>
+
+    <div id="scaleControlWrapper">
+      <div id="scaleLabelSelectWrapper">
+        <label for="scaleSelector">Échelle BTC :</label>
+        <select id="scaleSelector">
+          <option value="arith">Arithmétique</option>
+          <option value="log">Logarithmique</option>
+        </select>
+      </div>
+
+      <!-- Bouton juste en dessous du select : cbbi-crossings.js -->
+      <button id="toggleCrossingsBtn">
+        Afficher / Masquer les lignes CBBI/Fibo
+      </button>
+    </div>
+      <!-- Bouton juste en dessous du select : cbbi-crossings.js -->
+      <button id="toggleAltBtn">
+        Afficher / Masquer les lignes des halving
+      </button>
+    </div>
+      <!-- Bouton juste en dessous du select : cbbi-fibo-zones.js -->
+      <button id="zonefibobtcBtn">
+        Afficher / Masquer les zone CBBI/Fibo
+      </button>
+    </div>
+
+
+    
+
+
+  </footer>
+
+
+  <!-- ======================================================================================================================== -->
+  <!--                                       6 : SCRIPTS IMPORTÉS (MODULES JS)                                                  -->
+  <!-- ======================================================================================================================== -->
+
+
+  <script src="Cbbi/cbbi-analysis-export.js"></script>
+  <script src="Cbbi/cbbi-chart-fibo.js"></script>  
+  <script src="Cbbi/cbbi-controls.js"></script>
+  <script src="Cbbi/color-utils.js"></script>   
+
+  <script src="Btc/btc-chart.js"></script>
+
+  <script src="Cbbi/cbbi-fibo-line.js"></script> 
+
+  <script src="Btc/Cross/cbbi-crossings.js"></script> 
+  <script src="Btc/Fibo-zones/cbbi-fibo-zones.js"></script> 
+  <script src="Btc/Cross/line-verticale.js"></script> 
+
+
+</body>
+</html>

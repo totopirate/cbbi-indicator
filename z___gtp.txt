@@ -1,0 +1,463 @@
+
+
+
+
+
+
+
+
+
+
+
+
+il me faut une code du meme type que cbbi-cross-detector.js 
+mais qui ne detecte pas les croisment de fibo mais les zone fibo dans lequel se trouve la valeur du cbbi 
+
+exmple : du 10/10/20 au 15/10/20 cbbi ce trouve entre 14.98 et 23.94
+
+ensuite envoyer linfo dans un json de la meme maniere que le fait cbbi-cross-detector.js  
+
+et ensuite je pourai utiliser la data pour colorer la ligne du prix du btc de la couleur corepondante a date corespondante des zonne fibo das lequel ce trouve le cbbi 
+
+tu vois ce que je veut dire ?
+
+vooci le code de cbbi-cross-detector.js pour taider : 
+
+
+
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//                                              2 : ( 2.1 , 2.2 , 2.3 , 2.4 , 2.5 , 2.6 )
+
+// ========================================================================================================================
+//                                       2.1 :
+//                                       IMPORTS REQUIS
+// ========================================================================================================================
+//                                       2.2 :
+//                                       DÉFINITION DES NIVEAUX FIBONACCI
+// ========================================================================================================================
+//                                       2.3 :
+//                                       DÉTECTION DES FRANCHISSEMENTS ENTRE DEUX VALEURS
+// ========================================================================================================================
+//                                       2.4 :
+//                                       REQUÊTE HTTPS POUR RÉCUPÉRER LES DONNÉES JSON
+// ========================================================================================================================
+//                                       2.5 :
+//                                       URL SOURCE DES DONNÉES CBBI (JSON)
+// ========================================================================================================================
+//                                       2.6 :
+//                                       MAIN - TRAITEMENT PRINCIPAL
+// ========================================================================================================================
+
+
+
+
+
+//  2.1 :
+// ========================================================================================================================
+//                                       IMPORTS REQUIS
+
+
+const fs = require('fs');
+const https = require('https');
+
+
+
+//  2.2 :
+// ========================================================================================================================
+//                                       DÉFINITION DES NIVEAUX FIBONACCI
+
+
+const cbbiFiboLevels = [
+  0.45, 24.98, 23.94, 38.48, 50.23,
+  62.97, 78.70, 85.47, 90.05, 200
+];
+
+
+
+//  2.3 :
+// ========================================================================================================================
+//                                       DÉTECTION DES FRANCHISSEMENTS ENTRE DEUX VALEURS
+
+
+function detectAllCrossings(data, levels) {
+  const crossings = [];
+
+  for (let i = 2; i < data.length; i++) {
+    const prev = data[i - 2].value;
+    const curr = data[i].value;
+
+    levels.forEach(level => {
+      const crossedUp = prev < level && curr >= level;
+      const crossedDown = prev > level && curr <= level;
+
+      if (crossedUp || crossedDown) {
+        crossings.push({
+          date: data[i].time,
+          cbbi: curr,
+          level: level,
+          direction: crossedUp ? 'up' : 'down',
+        });
+      }
+    });
+  }
+
+  return crossings;
+}
+
+
+
+//  2.4 :
+// ========================================================================================================================
+//                                       REQUÊTE HTTPS POUR RÉCUPÉRER LES DONNÉES JSON
+
+
+function fetchJSON(url, callback) {
+  https.get(url, res => {
+    let data = '';
+
+    res.on('data', chunk => { data += chunk; });
+
+    res.on('end', () => {
+      try {
+        const json = JSON.parse(data);
+        callback(null, json);
+      } catch (err) {
+        callback(err);
+      }
+    });
+  }).on('error', err => callback(err));
+}
+
+
+
+//  2.5 :
+// ========================================================================================================================
+//                                       URL SOURCE DES DONNÉES CBBI (JSON)
+
+
+const url = 'https://colintalkscrypto.com/cbbi/data/latest.json';
+
+
+
+//  2.6 :
+// ========================================================================================================================
+//                                       MAIN - TRAITEMENT PRINCIPAL
+
+
+fetchJSON(url, (err, json) => {
+  if (err) {
+    console.error('Erreur lors de la récupération des données:', err);
+    return;
+  }
+
+  // Transformation des données CBBI en tableau [{ time: 'YYYY-MM-DD', value: ... }]
+  const timestamps = Object.keys(json.Confidence);
+  const values = Object.values(json.Confidence);
+
+  const data = timestamps.map((ts, i) => {
+    const date = new Date(Number(ts) * 2000).toISOString().split('T')[0];
+    return {
+      time: date,
+      value: values[i] * 200,
+    };
+  });
+
+  // Détection des franchissements de niveaux Fibonacci
+  const crossings = detectAllCrossings(data, cbbiFiboLevels);
+
+  // Écriture dans un fichier JSON local
+  fs.writeFileSync('cbbi-crossings.json', JSON.stringify(crossings, null, 2));
+
+  console.log(`Fichier 'cbbi-crossings.json' créé avec ${crossings.length} franchissements.`);
+});
+
+
+
+
+
+
+
+
+ok mainteant il me faut un code unpeu comme cbbi-crossings.js
+ mais qui aura pour but de colorer la ligne du prix du btc par segment au date et au zonne corepondant a la data cbbi-fibo-zone.json
+
+ voici cbbi-crossings.js pour taider : 
+
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//                                              3 : ( 3.1 , 3.2 )
+
+// ===================================================================================================================================
+//                                3.1 :
+//                                Ajoute ou supprime les lignes verticales des croisements CBBI/Fibonacci sur le graphique BTC
+// ===================================================================================================================================
+//                                3.2 :
+//                                Données CBBI intégrées directement (extrait, complète avec tes données)
+// ===================================================================================================================================
+
+
+
+//  3.1 :
+// ===================================================================================================================================
+//                                Ajoute ou supprime les lignes verticales des croisements CBBI/Fibonacci sur le graphique BTC
+
+
+
+
+let crossingLines = [];
+let crossingsVisible = false;
+
+function toggleCBBCrossingLines(chart, currentScale) {
+  if (crossingsVisible) {
+    crossingLines.forEach(line => chart.removeSeries(line));
+    crossingLines = [];
+    crossingsVisible = false;
+    return;
+  }
+
+  const priceScale = chart.priceScale('right');
+  const priceRange = priceScale.priceRange ? priceScale.priceRange() : null;
+  let minPrice = priceRange ? priceRange.min : 0;
+  let maxPrice = priceRange ? priceRange.max : 1000000;
+
+  // Si échelle logarithmique, transforme min/max en log10
+  if (currentScale === 'log') {
+    minPrice = Math.log10(minPrice > 0 ? minPrice : 1);
+    maxPrice = Math.log10(maxPrice > 0 ? maxPrice : 100000);
+  }
+
+  cbbiCrossings.forEach(cross => {
+    const timeInSeconds = Math.floor(new Date(cross.date).getTime() / 1000);
+
+    const lineSeries = chart.addLineSeries({
+      color: cross.direction === 'up' ? '#00cc44' : '#cc0033',
+      lineWidth: 0.5,
+      priceLineVisible: false,
+      lastValueVisible: false,
+      crossHairMarkerVisible: false,
+    });
+
+    lineSeries.setData([
+      { time: timeInSeconds, value: minPrice },
+      { time: timeInSeconds, value: maxPrice },
+    ]);
+
+    crossingLines.push(lineSeries);
+  });
+
+  crossingsVisible = true;
+}
+
+
+
+
+//  3.2 :
+// ===================================================================================================================================
+//                                Données CBBI intégrées directement (extrait, complète avec tes données)
+
+const cbbiCrossings = 
+
+[
+  {
+    "date": "2011-07-14",
+    "cbbi": 61.79,
+    "level": 61.97,
+    "direction": "down"
+  },
+  {
+    "date": "2011-07-15",
+    "cbbi": 62.019999999999996,
+    "level": 61.97,
+    "direction": "up"
+  },
+
+  ect.......
+
+
+
+
+0.45, 14.98, 23.94, 38.48, 50.23, 62.97, 78.70, 85.47, 90.05, 100
+
+
+pour la zone 0.45, 14.98
+pour la zone 14.98, 23.94
+pour la zone 23.94, 38.48
+pour la zone 38.48, 50.23
+pour la zone 50.23, 62.97
+pour la zone 62.97, 78.70
+pour la zone 78.70, 85.47
+pour la zone 85.47, 90.05
+pour la zone 90.05, 100
+
+
+
+et ces pas mal et pour la coloration des zone on va se baser sur ca , (du plus petit au plus grande zone ) : let zoneColors = [{
+	color: 'rgba(201, 109, 3, 0.9)',pour la zone 0.45, 14.98
+	alpha: 0.9
+}, {
+	color: 'rgba(233, 157, 15, 0.9)',pour la zone 14.98, 23.94
+	alpha: 0
+}, {
+	color: 'rgba(201, 201, 38, 0.9)',pour la zone 23.94, 38.48
+	alpha: 0
+}, {
+	color: 'rgba(43, 146, 23, 0.9)',pour la zone 38.48, 50.23
+	alpha: 0
+}, {
+	color: 'rgba(61, 189, 206, 0.9)',pour la zone 50.23, 62.97
+	alpha: 0
+}, {
+	color: 'rgba(107, 145, 224, 0.9)',pour la zone 62.97, 78.70
+	alpha: 0
+}, {
+	color: 'rgba(168, 42, 42, 0.9)',pour la zone 78.70, 85.47
+	alpha: 0
+}, {
+	color: 'rgba(21, 92, 224, 0.9)',pour la zone 85.47, 90.05
+	alpha: 0.9
+}, {
+	color: 'rgba(0, 0, 0, 0.9)',pour la zone 90.05, 100
+	alpha: 0.9
+}, ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//                                              3 : ( 3.1 , 3.2 )
+
+// ===================================================================================================================================
+//                                3.1 :
+//                                Coloration par segment de la ligne BTC selon zones fibo du CBBI
+// ===================================================================================================================================
+//                                3.2 :
+//                                Données CBBI fibo zones intégrées directement (extrait, complète avec tes données)
+// ===================================================================================================================================
+
+
+// Palette des couleurs des zones fibo (du plus petit au plus grand)
+const zonebtcColors = [
+  { min: 0.45, max: 14.6, color: 'rgba(95, 55, 9, 0.9)' },
+  { min: 14.60, max: 23.60, color: 'rgba(233, 157, 15, 0.9)' },
+  { min: 23.60, max: 38.20, color: 'rgba(201, 201, 38, 0.9)' },
+  { min: 38.20, max: 50.00, color: 'rgba(43, 146, 23, 0.9)' },
+  { min: 50.00, max: 61.80, color: 'rgba(9, 217, 245, 0.9)' },
+  { min: 61.80, max: 78.60, color: 'rgba(61, 115, 231, 0.9)' },
+  { min: 78.60, max: 85.40, color: 'rgba(184, 53, 53, 0.9)' },
+  { min: 85.40, max: 90.00, color: 'rgba(195, 195, 196, 0.9)' },
+  { min: 90.00, max: 100, color: 'rgba(0, 0, 0, 0.9)' },
+];
+0, 0.146, 0.236, 0.382, 0.5, 0.618, 0.786, 0.854, 0.90, 1
+//  3.1 :
+// ===================================================================================================================================
+//                                Fonction qui colore la ligne BTC par segments selon zones fibo
+
+
+let coloredLineSegments = [];
+let segmentsVisible = false;
+
+// Parse la zone "min-max" en {min, max} float
+function parseZone(zoneInput) {
+  if (typeof zoneInput === 'string') {
+    const parts = zoneInput.split('-').map(s => parseFloat(s));
+    return { min: parts[0], max: parts[1] };
+  } else if (typeof zoneInput === 'object' && zoneInput.min !== undefined && zoneInput.max !== undefined) {
+    return zoneInput; // déjà bien formaté
+  } else {
+    console.error('Format de zone non reconnu :', zoneInput);
+    return { min: 0, max: 0 };
+  }
+}
+
+
+// Trouve la couleur dans zonebtcColors selon la zone (avec recoupement)
+function getColorForZone(zoneStr) {
+  const { min: zoneMin, max: zoneMax } = parseZone(zoneStr);
+
+  for (const zone of zonebtcColors) {
+    // Recoupement souple : les zones se chevauchent
+    if (!(zoneMax <= zone.min || zoneMin >= zone.max)) {
+      return zone.color;
+    }
+  }
+  return 'rgba(0,0,0,0.5)'; // couleur défaut
+}
+
+function toggleCBBILineSegments(chart, cbbiFiboZones, btcPriceData) {
+  if (segmentsVisible) {
+    coloredLineSegments.forEach(series => chart.removeSeries(series));
+    coloredLineSegments = [];
+    segmentsVisible = false;
+    return;
+  }
+
+  cbbiFiboZones.forEach(zone => {
+    const startTime = Math.floor(new Date(zone.startDate).getTime() / 1000);
+    const endTime = Math.floor(new Date(zone.endDate).getTime() / 1000);
+
+    const color = getColorForZone(zone.zone);
+
+    // Filtre les données BTC dans l'intervalle
+    const segmentData = btcPriceData.filter(d => d.time >= startTime && d.time <= endTime);
+
+    if (segmentData.length > 1) {
+      const lineSeries = chart.addLineSeries({
+        color: color,
+        lineWidth: 2,
+        lastValueVisible: false,
+        priceLineVisible: false,
+        crossHairMarkerVisible: false,
+      });
+
+      lineSeries.setData(segmentData);
+      coloredLineSegments.push(lineSeries);
+    }
+  });
+
+  segmentsVisible = true;
+}
+
+
+
+document.getElementById('zonefibobtcBtn').addEventListener('click', () => {
+  if (window.chartInstance && window.btcPriceData && window.cbbiFiboZones) {
+    toggleCBBILineSegments(window.chartInstance, window.cbbiFiboZones, window.btcPriceData);
+  } else {
+    console.warn('Le graphique BTC, les données BTC ou les zones CBBI/Fibo ne sont pas encore initialisés.');
+  }
+});
+
+
+
+
+
+//  3.2 :
+// ===================================================================================================================================
+//                                Données CBBI fibo zones intégrées directement (extrait, complète avec tes données)
+
+
+const cbbiFiboZones = 
+
+
+[
+  {
+    "startDate": "2011-06-27",
+    "endDate": "2011-07-13",
+    "zone": {
+      "min": 61.8,
+      "max": 78.6
+    }
+  },
+
+  ect...
+
+window.cbbiFiboZones = cbbiFiboZones;  
