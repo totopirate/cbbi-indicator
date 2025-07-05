@@ -2,7 +2,7 @@ name: Mise à jour CBBI Zones
 
 on:
   schedule:
-    - cron: '* * * * *'   # Toutes les minutes (à changer en '0 3 * * *' pour 3h du matin)
+    - cron: '0 3 * * *'   # Tous les jours à 03:00 (UTC)
   workflow_dispatch:      # Exécution manuelle possible
 
 permissions:
