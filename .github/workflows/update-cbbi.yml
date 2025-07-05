@@ -1,0 +1,33 @@
+name: Update cbbi-fibo-zones
+
+on:
+  schedule:
+    - cron: '* * * * *'   # Toutes les minutes
+  workflow_dispatch:
+
+jobs:
+  update-zones:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cloner le dépôt
+        uses: actions/checkout@v3
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Lancer cbbi-zone-detector.js
+        run: node Btc/Fibo-zones/cbbi-zone-detector.js
+
+      - name: Commit et push si modif
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add Btc/Fibo-zones/cbbi-fibo-zones.js
+          git commit -m "Mise à jour auto de cbbi-fibo-zones" || echo "Aucune modification"
+          git push
