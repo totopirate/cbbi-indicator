@@ -3,11 +3,12 @@ name: Mise à jour CBBI Zones
 on:
   schedule:
     - cron: '* * * * *'   # Toutes les minutes
-  workflow_dispatch: # exécution manuelle
+  workflow_dispatch:      # Permet une exécution manuelle
 
 jobs:
   update-zones:
     runs-on: ubuntu-latest
+
     steps:
       - name: Cloner le dépôt
         uses: actions/checkout@v3
@@ -29,6 +30,6 @@ jobs:
           git config user.email "actions@github.com"
           git add .
           git commit -m "Mise à jour auto des zones" || echo "Aucun changement"
-          git push
+          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/totopirate/cbbi-indicator.git HEAD:main
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
