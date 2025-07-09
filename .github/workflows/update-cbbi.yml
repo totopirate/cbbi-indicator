@@ -29,6 +29,9 @@ jobs:
       - name: Lancer le script cbbi-zone-detector.js
         run: node Btc/Fibo-zones/cbbi-zone-detector.js
 
+      - name: Lancer le script cbbi-zone-detector-cycle.js
+        run: node Btc/Fibo-zones/cbbi-zone-detector-cycle.js    
+
       - name: Vérifier branche active
         run: git branch
 
