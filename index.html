@@ -136,9 +136,10 @@
   <!-- ======================================================================================================================== -->
   <!--                                       2 : TITRE PRINCIPAL DU DASHBOARD                                                   -->
   <!-- ======================================================================================================================== -->
-  <h2>Graphique CBBI + Fibonacci retracement / BTC Color CBBI </h2>
-
-
+  <footer>
+  <h2> Graphique CBBI + Fibonacci retracement / Graphique BTC +  Mode Color Fibo </h2>
+  </footer>
+  <br>
 
   <!-- ======================================================================================================================== -->
   <!--                                       3 : CONTRÔLES POUR LA SÉLECTION DES VALEURS FIBONACCI                              -->
@@ -194,23 +195,164 @@
     </div>
       <!-- Bouton juste en dessous du select : cbbi-fibo-zones.js -->
       <button id="zonefibobtcBtn">
-        Afficher / Masquer les zone CBBI/Fibo
+        Afficher / Masquer les zone Fibo/CBBI
       </button>
     </div>
       <!-- Bouton juste en dessous du select : cbbi-fibo-zones-cycle.js -->
       <button id="zonefibobtcBtnCycle">
-        Afficher / Masquer les zone CBBI/Fibo/cycle
+        Afficher / Masquer les zone Fibo/Cycle/CBBI
       </button>
     </div>
-
-    
-
-
   </footer>
 
 
+  <footer>   
+    <section>
+
+
+
+      <h2> 🔎 Qu’est-ce que le CBBI ? </h2>
+
+      <p>
+        Le CBBI (Crypto Bitcoin Bull Run Index) est un indice composite développé dans le but d’évaluer la maturité d’un cycle haussier du Bitcoin.
+        <p>
+        Il fournit une valeur comprise entre 0 et 100 :
+        </p>
+      </p>
+      <ul>
+        <li> Une valeur proche de 0 suggère que le marché se situe potentiellement dans une zone historiquement basse (opportunité d'achat). </li>
+        <li> Une valeur proche de 100 indique que le marché pourrait approcher d’un sommet (zone de surévaluation).                          </li>
+      </ul>
+      <p>
+        Le CBBI vise à synthétiser plusieurs signaux de marché afin de proposer une vue d’ensemble consolidée. <br>
+        Il permet ainsi de guider les décisions d’investissement à long terme en réduisant l’influence des émotions et en contextualisant le comportement actuel du marché dans une perspective historique.
+      </p>
+
+    </section>
+
+
+    <section>
+
+        
+      <h2> 🎯 Objectifs et utilité </h2>
+      <p>Le CBBI est utilisé principalement pour : </p>
+      <ul>
+        <li> Apprécier la position actuelle du marché dans le cycle haussier du Bitcoin.            </li>
+        <li> Renforcer l’analyse de long terme à travers un indicateur agrégé fiable.               </li>
+        <li> Simplifier l'interprétation de plusieurs métriques complexes en un seul indice global. </li>
+        <li> Identifier des zones de prudence ou d’opportunité, sur la base de données historiques. </li>
+      </ul>
+
+    </section>
+
+    <section>
+
+
+      <h2> 📊 Indicateurs intégrés dans le CBBI </h2>
+      <p> L’indice que vous utilisez est basé sur une combinaison de neuf indicateurs reconnus dans l’analyse du Bitcoin, chacun contribuant à une dimension particulière de l’évaluation du marché : </p>
+      <table border="1" cellpadding="5" cellspacing="0">
+
+        <thead>
+          <tr>
+            <th> Indicateur  </th>
+            <th> Description </th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td> Pi Cycle </td>
+            <td> Détecte les sommets potentiels des cycles haussiers à partir de moyennes mobiles spécifiques.      </td>
+          </tr>
+          <tr>
+            <td> RUPL                                                                                               </td>
+            <td> Realized Unprofitable Profit and Loss – mesure les profits/pertes latents selon les prix réalisés. </td>
+          </tr>
+          <tr>
+            <td> RHODL                                                                                              </td>
+            <td> Analyse les différences de comportement entre détenteurs à court et long terme.                    </td>
+          </tr>
+          <tr>
+            <td> Puell Multiple                                                                                     </td>
+            <td> Compare le revenu journalier des mineurs à sa moyenne historique, signalant les excès.             </td>
+          </tr>
+          <tr>
+            <td> 2YMA                                                                                               </td>
+            <td> Compare le prix du Bitcoin à sa moyenne mobile sur deux ans pour évaluer les déviations.           </td>
+          </tr>
+          <tr>
+            <td> Trolololo Trend                                                                                    </td>
+            <td> Modèle log-linéaire utilisé pour représenter la trajectoire de long terme du prix.                 </td>
+          </tr>
+          <tr>
+            <td> MVRV Z-Score                                                                                       </td>
+            <td> Compare la valeur de marché à la valeur réalisée, utile pour repérer les extrêmes.                 </td>
+          </tr>
+          <tr>
+            <td> Reserve Risk                                                                                       </td>
+            <td> Mesure la confiance des détenteurs long terme par rapport au prix actuel.                          </td>
+          </tr>
+          <tr>
+            <td> Woobull Model                                                                                      </td>
+            <td> Modèle synthétisant plusieurs métriques comportementales (créé par Willy Woo).                     </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+      <br>
+
+
+    </section>
+
+  </footer>
+  <footer>
+
+    <section>
+
+      <h2> 📊 Utilisation du projet CBBI + Zones Fibonacci </h2>
+      <p> Ce projet permet de visualiser les cycles du marché Bitcoin grâce à l’indicateur CBBI combiné aux zones de retracement de Fibonacci. Il propose deux modes d’analyse : </p>
+
+      <ol>
+
+        <br> 
+          <li> <strong> Graphique du BTC </strong> <br> </li> 
+          Affiche le prix du Bitcoin avec une coloration selon le mode de zones Fibonacci du CBBI sélectionné, pour mieux comprendre les phases du marché.
+        <br> 
+
+        <br> 
+          <li> <strong> Mode 1 “Zones Fibo” du CBBI </strong> <br> </li>
+          Affiche le CBBI avec les niveaux de Fibonacci et colore les segments selon leur zone. Ce mode permet aussi de voir si le CBBI réagit en touchant ces zones et l’impact que cela a sur le prix du BTC.
+        <br> <br> 
+        
+        <li>
+
+          <strong> Mode 2 “Zones Fibo Cycle” du CBBI </strong> <br>
+          Simplifie la lecture des cycles :
+
+          <ul>
+
+            <p> <li> <span style="color:#D8B0F0;">🟣 Zone 0 → 14.6    </span> : potentiel bottom de cycle baissier. </li> </p>
+            <p> <li> <span style="color:#2B9217;">🟢 Zone 14.6 → 85.4 </span> : phase haussière du cycle.           </li> </p>
+            <p> <li> <span style="color:#D80B0B;">🔴 Zone 85.4 → 14.6 </span> : phase baissière du cycle.           </li> </p>
+            <p> <li> <span style="color:#000000;">⚫ Zone 85.4 → 100  </span> : potentiel top de cycle haussier.    </li> </p>
+
+
+
+          </ul>
+
+        </li>
+
+      </ol>
+
+    </section>
+  </footer>
+  <section> <br> <br> <br> <br> <br> </section>
+
+
   <!-- ======================================================================================================================== -->
-  <!--                                       6 : SCRIPTS IMPORTÉS (MODULES JS)                                                  -->
+  <!--                                       7 : SCRIPTS IMPORTÉS (MODULES JS)                                                  -->
   <!-- ======================================================================================================================== -->
 
 
