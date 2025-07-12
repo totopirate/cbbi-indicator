@@ -169,6 +169,7 @@
 
 
 
+
   <!-- ======================================================================================================================== -->
   <!--                                       5 : FOOTER - CONTRÔLES DES COULEURS ET ÉCHELLES                                    -->
   <!-- ======================================================================================================================== -->
@@ -187,23 +188,31 @@
           <option value="log">Logarithmique</option>
         </select>
       </div>
-
       <!-- Bouton juste en dessous du select : cbbi-crossings.js -->
       <button id="toggleAltBtn">
-        Afficher / Masquer les lignes des halving
+        Afficher / Masquer Date-Halving
       </button>
     </div>
       <!-- Bouton juste en dessous du select : cbbi-fibo-zones.js -->
       <button id="zonefibobtcBtn">
-        Afficher / Masquer les zone Fibo/CBBI
+        Afficher / Masquer le mode 1 ( Zone-Fibo-CBBI )
       </button>
     </div>
       <!-- Bouton juste en dessous du select : cbbi-fibo-zones-cycle.js -->
       <button id="zonefibobtcBtnCycle">
-        Afficher / Masquer les zone Fibo/Cycle/CBBI
+        Afficher / Masquer le mode 2 ( Zone-Fibo-Cycle-CBBI ) 
       </button>
     </div>
+
   </footer>
+
+
+
+
+  <!-- ======================================================================================================================== -->
+  <!--                                       6 : EXPLICATION / EDUCATIONS                                                       -->
+  <!-- ======================================================================================================================== -->
+
 
 
   <footer>   
@@ -316,30 +325,44 @@
 
       <ol>
 
+
         <br> 
-          <li> <strong> Graphique du BTC </strong> <br> </li> 
-          Affiche le prix du Bitcoin avec une coloration selon le mode de zones Fibonacci du CBBI sélectionné, pour mieux comprendre les phases du marché.
+          <li> <strong> Graphique du CBBI </strong> <br> </li> 
+
+          <br> - Affiche le CBBI avec les niveaux de Fibonacci ( 0 , 0.146 , 0.236 , 0.382 , 0.5 , 0.618 , 0.786 , 0.854 , 0.90 , 1 ) et colore les segments selon leur zone. <br>
+          
+          <br> - Ce mode permet aussi de voir si le CBBI réagit en touchant ces zones de fibo.         <br>
         <br> 
 
         <br> 
-          <li> <strong> Mode 1 “Zones Fibo” du CBBI </strong> <br> </li>
-          Affiche le CBBI avec les niveaux de Fibonacci et colore les segments selon leur zone. Ce mode permet aussi de voir si le CBBI réagit en touchant ces zones et l’impact que cela a sur le prix du BTC.
+          <li> <strong> Graphique du BTC </strong> <br> </li> 
+
+          <br> - Affiche le prix du Bitcoin avec une coloration selon le mode de zones Fibonacci du CBBI sélectionné, pour mieux comprendre les phases du marché. <br>
+        <br> 
+
+        <br> 
+          <li> <strong> Mode 1 “ Zone-Fibo-CBBI ” </strong> <br> </li>
+
+          <br> - Affiche au prix du Bitcoin la coloration des zones Fibonacci du CBBI.                                                                <br>
+
+          <br> - Permet de representer visuelement les corelation entre le CBBI touchant ces zones de fibo et l’impact que cela a sur le prix du BTC. <br>
         <br> <br> 
         
         <li>
 
-          <strong> Mode 2 “Zones Fibo Cycle” du CBBI </strong> <br>
-          Simplifie la lecture des cycles :
+          <strong> Mode 2 “ Zones-Fibo-Cycle-CBBI ” </strong> <br>
+          
+          <br> - Affiche au prix du Bitcoin la coloration des zones Fibonacci ( 0 , 0.146 , 0.854 , 1 ) du CBBI. <br>
+
+          <br> - Simplifie la lecture des cycles :                                                               <br>
 
           <ul>
 
-            <p> <li> <span style="color:#D8B0F0;">🟣 Zone 0 → 14.6    </span> : potentiel bottom de cycle baissier. </li> </p>
-            <p> <li> <span style="color:#2B9217;">🟢 Zone 14.6 → 85.4 </span> : phase haussière du cycle.           </li> </p>
-            <p> <li> <span style="color:#D80B0B;">🔴 Zone 85.4 → 14.6 </span> : phase baissière du cycle.           </li> </p>
-            <p> <li> <span style="color:#000000;">⚫ Zone 85.4 → 100  </span> : potentiel top de cycle haussier.    </li> </p>
-
-
-
+            <p> <li> <span style="color:rgba(216, 176, 240, 0.9);" >⚪ Zone 0 → 14.6    </span> : Potentiel plus bas de cycle baissier.  </li> </p>
+            <p> <li> <span style="color:rgba(100, 220, 100, 0.9);" >🟢 Zone 14.6 → 85.4 </span> : Phase haussière du cycle.              </li> </p>
+            <p> <li> <span style="color:rgba(0, 0, 0, 0.9);"       >⚫ Zone 85.4 → 100  </span> : Potentiel plus haut de cycle haussier. </li> </p>
+            <p> <li> <span style="color:rgb(180, 26, 15);"         >🔴 Zone 85.4 → 14.6 </span> : Phase baissière du cycle.              </li> </p>
+            
           </ul>
 
         </li>
@@ -354,6 +377,9 @@
   <!-- ======================================================================================================================== -->
   <!--                                       7 : SCRIPTS IMPORTÉS (MODULES JS)                                                  -->
   <!-- ======================================================================================================================== -->
+
+
+
 
 
   <script src="Cbbi/cbbi-analysis-export.js"></script>
