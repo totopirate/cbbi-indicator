@@ -17,25 +17,32 @@
 
 function setupColorControls() {
 	const container = document.getElementById('colorControls');
+	if (!container) return; // ⛔️ Stoppe la fonction si le conteneur n'existe pas
+
 	container.innerHTML = '';
+
 	zoneColors.forEach((zone, index) => {
 		const label = document.createElement('label');
 		label.style.flexDirection = 'row';
+
 		// Texte descriptif de la zone
 		const text = document.createElement('span');
-		text.textContent = `Zone ${index+1} : `;
+		text.textContent = `Zone ${index + 1} : `;
 		label.appendChild(text);
+
 		// Input couleur (color picker)
 		const colorInput = document.createElement('input');
 		colorInput.type = 'color';
 		colorInput.value = rgbaToHex(zone.color);
 		colorInput.dataset.zoneIndex = index;
 		label.appendChild(colorInput);
+
 		// Label affichage opacité actuelle
 		const opacityLabel = document.createElement('span');
 		opacityLabel.className = 'opacity-label';
 		opacityLabel.textContent = (zone.alpha).toFixed(2);
 		label.appendChild(opacityLabel);
+
 		// Slider opacité
 		const opacityInput = document.createElement('input');
 		opacityInput.type = 'range';
@@ -45,7 +52,9 @@ function setupColorControls() {
 		opacityInput.value = zone.alpha;
 		opacityInput.dataset.zoneIndex = index;
 		label.appendChild(opacityInput);
+
 		container.appendChild(label);
+
 		// Gestionnaire d’événement pour changement de couleur
 		colorInput.oninput = e => {
 			const idx = Number(e.target.dataset.zoneIndex);
@@ -56,12 +65,12 @@ function setupColorControls() {
 				redrawColoredSeries();
 			}
 		};
+
 		// Gestionnaire d’événement pour changement d’opacité
 		opacityInput.oninput = e => {
 			const idx = Number(e.target.dataset.zoneIndex);
 			const alpha = Number(e.target.value);
 			zoneColors[idx].alpha = alpha;
-			// Mise à jour couleur rgba avec nouvelle opacité
 			const hex = rgbaToHex(zoneColors[idx].color);
 			zoneColors[idx].color = hexToRgba(hex, alpha);
 			opacityLabel.textContent = alpha.toFixed(2);
