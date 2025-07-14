@@ -163,8 +163,8 @@
   <!-- ======================================================================================================================== -->
 
 
-  <div id="chart"></div>
-  <div id="chartBTC" style="width: 100%; height: 500px;"></div>
+  <div id="chart"></div>                                         <!--  ajout Graphique CBBI  -->
+  <div id="chartBTC" style="width: 100%; height: 500px;"></div>  <!--  ajout Graphique BTC  -->
   
 
 
@@ -207,10 +207,33 @@
   </footer>
 
 
-
-
   <!-- ======================================================================================================================== -->
-  <!--                                       6 : EXPLICATION / EDUCATIONS                                                       -->
+  <!--                                       6 : GRAPHIQUES CFGI                                                         -->
+  <!-- ======================================================================================================================== -->
+
+
+
+  <div id="chartCFGI" style="width: 100%; height: 500px;"></div>  <!--  ajout Crypto Fear & Greed Index -->
+  
+
+
+
+  <div> <br>
+    <label for="value1">Valeur Cbbi Fibo point 1 :</label>
+    <input type="number" id="value1CFGI" step="0.01" value="100" />
+    <label for="value2">Valeur Cbbi Fibo point 2 :</label>
+    <input type="number" id="value2CFGI" step="0.01" value="0" />
+
+    <button id="btnDrawFiboCFGI">Tracer Fibonacci</button>
+    <button id="btnClearFiboCFGI">Supprimer Fibonacci</button>
+  </div>
+
+
+
+
+  
+  <!-- ======================================================================================================================== -->
+  <!--                                       7 : EXPLICATION / EDUCATIONS                                                       -->
   <!-- ======================================================================================================================== -->
 
 
@@ -375,14 +398,14 @@
 
 
   <!-- ======================================================================================================================== -->
-  <!--                                       7 : SCRIPTS IMPORTÉS (MODULES JS)                                                  -->
+  <!--                                       8 : SCRIPTS IMPORTÉS (MODULES JS)                                                  -->
   <!-- ======================================================================================================================== -->
 
 
 
 
 
-  <script src="Cbbi/cbbi-analysis-export.js"></script>
+
   <script src="Cbbi/cbbi-chart-fibo.js"></script>  
   <script src="Cbbi/cbbi-controls.js"></script>
   <script src="Cbbi/color-utils.js"></script>   
@@ -396,6 +419,7 @@
   <script src="Btc/Fibo-zones/cbbi-fibo-zones-cycle.js"></script>   
   <script src="Btc/Cross/line-verticale.js"></script> 
 
+  <script src="CFGI/Cfgi-chart-1.js"></script>                            <!--  ajout Crypto Fear & Greed Index -->
 
 </body>
 </html>
