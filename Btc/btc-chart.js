@@ -129,7 +129,7 @@ async function drawBTCChart() {
 
 
 		// ► Création du graphique
-		const chart = LightweightCharts.createChart(document.getElementById('chart'), {
+		const chart = LightweightCharts.createChart(document.getElementById('chartBTC'), {
 			width: document.getElementById('chart').clientWidth,
 			height: 500,
 			layout: {
