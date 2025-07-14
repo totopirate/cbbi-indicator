@@ -168,7 +168,7 @@ async function drawBTCChart() {
 		});
 
 		// ► Échelle actuelle (globale)
-		window.currentScale = 'arith';
+		window.currentScale = 'log';
 
 		// ► Affichage initial
 		updateBTCChartData(lineSeries, chart, dataArith, dataLog, window.currentScale);
