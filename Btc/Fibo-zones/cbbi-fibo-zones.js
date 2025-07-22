@@ -2868,14 +2868,6 @@ const cbbiFiboZones = [
       "min": 61.8,
       "max": 78.6
     }
-  },
-  {
-    "startDate": "2025-07-14",
-    "endDate": "2025-07-22",
-    "zone": {
-      "min": 78.6,
-      "max": 85.4
-    }
   }
 ];
 
