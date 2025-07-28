@@ -575,22 +575,6 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2013-11-19",
-    "endDate": "2013-11-19",
-    "zone": {
-      "min": 85.4,
-      "max": 90
-    }
-  },
-  {
-    "startDate": "2013-11-20",
-    "endDate": "2013-11-20",
-    "zone": {
-      "min": 78.6,
-      "max": 85.4
-    }
-  },
-  {
-    "startDate": "2013-11-21",
     "endDate": "2013-11-22",
     "zone": {
       "min": 85.4,
@@ -919,14 +903,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2015-11-03",
-    "endDate": "2015-11-10",
+    "endDate": "2015-11-11",
     "zone": {
       "min": 23.6,
       "max": 38.2
     }
   },
   {
-    "startDate": "2015-11-11",
+    "startDate": "2015-11-12",
     "endDate": "2015-11-27",
     "zone": {
       "min": 14.6,
@@ -1111,22 +1095,6 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2017-04-29",
-    "endDate": "2017-05-20",
-    "zone": {
-      "min": 50,
-      "max": 61.8
-    }
-  },
-  {
-    "startDate": "2017-05-21",
-    "endDate": "2017-05-21",
-    "zone": {
-      "min": 61.8,
-      "max": 78.6
-    }
-  },
-  {
-    "startDate": "2017-05-22",
     "endDate": "2017-05-22",
     "zone": {
       "min": 50,
@@ -1407,14 +1375,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2018-08-18",
-    "endDate": "2018-08-19",
+    "endDate": "2018-08-20",
     "zone": {
       "min": 38.2,
       "max": 50
     }
   },
   {
-    "startDate": "2018-08-20",
+    "startDate": "2018-08-21",
     "endDate": "2018-08-21",
     "zone": {
       "min": 23.6,
@@ -1447,14 +1415,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2018-11-26",
-    "endDate": "2018-11-28",
+    "endDate": "2018-11-29",
     "zone": {
       "min": 0,
       "max": 14.6
     }
   },
   {
-    "startDate": "2018-11-29",
+    "startDate": "2018-11-30",
     "endDate": "2018-11-30",
     "zone": {
       "min": 14.6,
@@ -1551,14 +1519,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2019-05-14",
-    "endDate": "2019-06-22",
+    "endDate": "2019-06-21",
     "zone": {
       "min": 38.2,
       "max": 50
     }
   },
   {
-    "startDate": "2019-06-23",
+    "startDate": "2019-06-22",
     "endDate": "2019-07-16",
     "zone": {
       "min": 50,
@@ -2903,7 +2871,7 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2025-07-14",
-    "endDate": "2025-07-27",
+    "endDate": "2025-07-28",
     "zone": {
       "min": 78.6,
       "max": 85.4
