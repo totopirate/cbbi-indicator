@@ -687,14 +687,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2014-03-04",
-    "endDate": "2014-03-18",
+    "endDate": "2014-03-17",
     "zone": {
       "min": 61.8,
       "max": 78.6
     }
   },
   {
-    "startDate": "2014-03-19",
+    "startDate": "2014-03-18",
     "endDate": "2014-04-04",
     "zone": {
       "min": 50,
@@ -1287,22 +1287,6 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2018-03-31",
-    "endDate": "2018-04-18",
-    "zone": {
-      "min": 50,
-      "max": 61.8
-    }
-  },
-  {
-    "startDate": "2018-04-19",
-    "endDate": "2018-04-19",
-    "zone": {
-      "min": 61.8,
-      "max": 78.6
-    }
-  },
-  {
-    "startDate": "2018-04-20",
     "endDate": "2018-04-20",
     "zone": {
       "min": 50,
@@ -1391,22 +1375,6 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2018-08-22",
-    "endDate": "2018-08-22",
-    "zone": {
-      "min": 38.2,
-      "max": 50
-    }
-  },
-  {
-    "startDate": "2018-08-23",
-    "endDate": "2018-08-23",
-    "zone": {
-      "min": 23.6,
-      "max": 38.2
-    }
-  },
-  {
-    "startDate": "2018-08-24",
     "endDate": "2018-09-06",
     "zone": {
       "min": 38.2,
@@ -1423,14 +1391,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2018-11-21",
-    "endDate": "2018-11-26",
+    "endDate": "2018-11-25",
     "zone": {
       "min": 14.6,
       "max": 23.6
     }
   },
   {
-    "startDate": "2018-11-27",
+    "startDate": "2018-11-26",
     "endDate": "2018-11-29",
     "zone": {
       "min": 0,
@@ -1471,14 +1439,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2019-04-12",
-    "endDate": "2019-04-18",
+    "endDate": "2019-04-17",
     "zone": {
       "min": 14.6,
       "max": 23.6
     }
   },
   {
-    "startDate": "2019-04-19",
+    "startDate": "2019-04-18",
     "endDate": "2019-04-19",
     "zone": {
       "min": 23.6,
@@ -2959,7 +2927,7 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2025-08-19",
-    "endDate": "2025-09-02",
+    "endDate": "2025-09-03",
     "zone": {
       "min": 61.8,
       "max": 78.6
