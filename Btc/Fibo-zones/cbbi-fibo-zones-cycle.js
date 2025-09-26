@@ -297,7 +297,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2017-11-05",
-    "endDate": "2017-11-06",
+    "endDate": "2017-11-05",
     "zone": {
       "min": 85.4,
       "max": 90,
@@ -305,7 +305,25 @@ const cbbiFiboZonesCycle = [
     }
   },
   {
+    "startDate": "2017-11-06",
+    "endDate": "2017-11-06",
+    "zone": {
+      "min": 14.6,
+      "max": 85.4,
+      "direction": "down"
+    }
+  },
+  {
     "startDate": "2017-11-07",
+    "endDate": "2017-11-07",
+    "zone": {
+      "min": 85.4,
+      "max": 90,
+      "direction": "up"
+    }
+  },
+  {
+    "startDate": "2017-11-08",
     "endDate": "2017-11-08",
     "zone": {
       "min": 14.6,
@@ -324,7 +342,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2017-11-10",
-    "endDate": "2017-11-16",
+    "endDate": "2017-11-15",
     "zone": {
       "min": 14.6,
       "max": 85.4,
@@ -332,7 +350,7 @@ const cbbiFiboZonesCycle = [
     }
   },
   {
-    "startDate": "2017-11-17",
+    "startDate": "2017-11-16",
     "endDate": "2017-11-26",
     "zone": {
       "min": 85.4,
@@ -459,7 +477,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2021-01-06",
-    "endDate": "2021-01-08",
+    "endDate": "2021-01-09",
     "zone": {
       "min": 85.4,
       "max": 90,
@@ -467,7 +485,7 @@ const cbbiFiboZonesCycle = [
     }
   },
   {
-    "startDate": "2021-01-09",
+    "startDate": "2021-01-10",
     "endDate": "2021-01-10",
     "zone": {
       "min": 90,
@@ -477,7 +495,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2021-01-11",
-    "endDate": "2021-01-19",
+    "endDate": "2021-01-20",
     "zone": {
       "min": 85.4,
       "max": 90,
@@ -485,7 +503,7 @@ const cbbiFiboZonesCycle = [
     }
   },
   {
-    "startDate": "2021-01-20",
+    "startDate": "2021-01-21",
     "endDate": "2021-02-03",
     "zone": {
       "min": 14.6,
@@ -612,7 +630,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2023-01-15",
-    "endDate": "2025-09-25",
+    "endDate": "2025-09-26",
     "zone": {
       "min": 14.6,
       "max": 85.4,
