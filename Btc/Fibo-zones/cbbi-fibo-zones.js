@@ -159,22 +159,6 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2011-07-20",
-    "endDate": "2011-07-22",
-    "zone": {
-      "min": 61.8,
-      "max": 78.6
-    }
-  },
-  {
-    "startDate": "2011-07-23",
-    "endDate": "2011-07-23",
-    "zone": {
-      "min": 50,
-      "max": 61.8
-    }
-  },
-  {
-    "startDate": "2011-07-24",
     "endDate": "2011-07-25",
     "zone": {
       "min": 61.8,
@@ -511,22 +495,6 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2013-10-22",
-    "endDate": "2013-10-25",
-    "zone": {
-      "min": 61.8,
-      "max": 78.6
-    }
-  },
-  {
-    "startDate": "2013-10-26",
-    "endDate": "2013-10-26",
-    "zone": {
-      "min": 50,
-      "max": 61.8
-    }
-  },
-  {
-    "startDate": "2013-10-27",
     "endDate": "2013-11-14",
     "zone": {
       "min": 61.8,
@@ -591,14 +559,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2013-12-18",
-    "endDate": "2013-12-19",
+    "endDate": "2013-12-18",
     "zone": {
       "min": 61.8,
       "max": 78.6
     }
   },
   {
-    "startDate": "2013-12-20",
+    "startDate": "2013-12-19",
     "endDate": "2013-12-20",
     "zone": {
       "min": 78.6,
@@ -1119,14 +1087,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2017-09-04",
-    "endDate": "2017-09-07",
+    "endDate": "2017-09-06",
     "zone": {
       "min": 61.8,
       "max": 78.6
     }
   },
   {
-    "startDate": "2017-09-08",
+    "startDate": "2017-09-07",
     "endDate": "2017-09-08",
     "zone": {
       "min": 78.6,
@@ -1343,22 +1311,6 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2018-08-16",
-    "endDate": "2018-08-16",
-    "zone": {
-      "min": 38.2,
-      "max": 50
-    }
-  },
-  {
-    "startDate": "2018-08-17",
-    "endDate": "2018-08-17",
-    "zone": {
-      "min": 23.6,
-      "max": 38.2
-    }
-  },
-  {
-    "startDate": "2018-08-18",
     "endDate": "2018-08-19",
     "zone": {
       "min": 38.2,
@@ -2927,7 +2879,7 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2025-08-19",
-    "endDate": "2025-09-28",
+    "endDate": "2025-09-29",
     "zone": {
       "min": 61.8,
       "max": 78.6
