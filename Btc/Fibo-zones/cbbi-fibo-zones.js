@@ -231,14 +231,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2011-10-17",
-    "endDate": "2011-12-12",
+    "endDate": "2011-12-13",
     "zone": {
       "min": 0,
       "max": 14.6
     }
   },
   {
-    "startDate": "2011-12-13",
+    "startDate": "2011-12-14",
     "endDate": "2011-12-14",
     "zone": {
       "min": 14.6,
@@ -1375,22 +1375,6 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2018-08-16",
-    "endDate": "2018-08-16",
-    "zone": {
-      "min": 38.2,
-      "max": 50
-    }
-  },
-  {
-    "startDate": "2018-08-17",
-    "endDate": "2018-08-17",
-    "zone": {
-      "min": 23.6,
-      "max": 38.2
-    }
-  },
-  {
-    "startDate": "2018-08-18",
     "endDate": "2018-08-19",
     "zone": {
       "min": 38.2,
@@ -1591,14 +1575,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2019-08-01",
-    "endDate": "2019-08-16",
+    "endDate": "2019-08-17",
     "zone": {
       "min": 50,
       "max": 61.8
     }
   },
   {
-    "startDate": "2019-08-17",
+    "startDate": "2019-08-18",
     "endDate": "2019-08-18",
     "zone": {
       "min": 38.2,
@@ -2367,22 +2351,6 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2023-04-14",
-    "endDate": "2023-04-15",
-    "zone": {
-      "min": 38.2,
-      "max": 50
-    }
-  },
-  {
-    "startDate": "2023-04-16",
-    "endDate": "2023-04-16",
-    "zone": {
-      "min": 23.6,
-      "max": 38.2
-    }
-  },
-  {
-    "startDate": "2023-04-17",
     "endDate": "2023-04-19",
     "zone": {
       "min": 38.2,
@@ -2663,14 +2631,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2024-03-27",
-    "endDate": "2024-04-01",
+    "endDate": "2024-04-02",
     "zone": {
       "min": 78.6,
       "max": 85.4
     }
   },
   {
-    "startDate": "2024-04-02",
+    "startDate": "2024-04-03",
     "endDate": "2024-07-04",
     "zone": {
       "min": 61.8,
@@ -2967,7 +2935,7 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2025-11-17",
-    "endDate": "2025-11-23",
+    "endDate": "2025-11-24",
     "zone": {
       "min": 50,
       "max": 61.8
