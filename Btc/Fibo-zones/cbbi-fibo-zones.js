@@ -295,14 +295,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2012-03-15",
-    "endDate": "2012-03-18",
+    "endDate": "2012-03-19",
     "zone": {
       "min": 23.6,
       "max": 38.2
     }
   },
   {
-    "startDate": "2012-03-19",
+    "startDate": "2012-03-20",
     "endDate": "2012-04-19",
     "zone": {
       "min": 14.6,
@@ -1143,14 +1143,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2017-08-31",
-    "endDate": "2017-09-05",
+    "endDate": "2017-09-04",
     "zone": {
       "min": 78.6,
       "max": 85.4
     }
   },
   {
-    "startDate": "2017-09-06",
+    "startDate": "2017-09-05",
     "endDate": "2017-09-06",
     "zone": {
       "min": 61.8,
@@ -1343,14 +1343,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2018-04-21",
-    "endDate": "2018-05-10",
+    "endDate": "2018-05-11",
     "zone": {
       "min": 61.8,
       "max": 78.6
     }
   },
   {
-    "startDate": "2018-05-11",
+    "startDate": "2018-05-12",
     "endDate": "2018-06-10",
     "zone": {
       "min": 50,
@@ -1431,6 +1431,22 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2018-12-04",
+    "endDate": "2018-12-22",
+    "zone": {
+      "min": 0,
+      "max": 14.6
+    }
+  },
+  {
+    "startDate": "2018-12-23",
+    "endDate": "2018-12-23",
+    "zone": {
+      "min": 14.6,
+      "max": 23.6
+    }
+  },
+  {
+    "startDate": "2018-12-24",
     "endDate": "2018-12-24",
     "zone": {
       "min": 0,
@@ -2375,22 +2391,6 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2023-04-20",
-    "endDate": "2023-04-30",
-    "zone": {
-      "min": 23.6,
-      "max": 38.2
-    }
-  },
-  {
-    "startDate": "2023-05-01",
-    "endDate": "2023-05-01",
-    "zone": {
-      "min": 38.2,
-      "max": 50
-    }
-  },
-  {
-    "startDate": "2023-05-02",
     "endDate": "2023-05-05",
     "zone": {
       "min": 23.6,
@@ -2919,7 +2919,7 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2025-11-17",
-    "endDate": "2025-12-02",
+    "endDate": "2025-12-03",
     "zone": {
       "min": 50,
       "max": 61.8
