@@ -207,7 +207,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2013-12-07",
-    "endDate": "2013-12-09",
+    "endDate": "2013-12-08",
     "zone": {
       "min": 85.4,
       "max": 90,
@@ -215,7 +215,7 @@ const cbbiFiboZonesCycle = [
     }
   },
   {
-    "startDate": "2013-12-10",
+    "startDate": "2013-12-09",
     "endDate": "2013-12-11",
     "zone": {
       "min": 90,
@@ -666,7 +666,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2023-01-15",
-    "endDate": "2025-12-03",
+    "endDate": "2025-12-04",
     "zone": {
       "min": 14.6,
       "max": 85.4,
