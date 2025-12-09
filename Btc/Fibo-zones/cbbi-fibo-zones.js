@@ -711,14 +711,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2014-06-01",
-    "endDate": "2014-06-12",
+    "endDate": "2014-06-13",
     "zone": {
       "min": 50,
       "max": 61.8
     }
   },
   {
-    "startDate": "2014-06-13",
+    "startDate": "2014-06-14",
     "endDate": "2014-08-18",
     "zone": {
       "min": 38.2,
@@ -2919,7 +2919,7 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2025-11-17",
-    "endDate": "2025-12-08",
+    "endDate": "2025-12-09",
     "zone": {
       "min": 50,
       "max": 61.8
