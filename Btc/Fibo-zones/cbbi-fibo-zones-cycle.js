@@ -126,7 +126,7 @@ document.getElementById('zonefibobtcBtnCycle').addEventListener('click', () => {
 const cbbiFiboZonesCycle = [
   {
     "startDate": "2011-06-27",
-    "endDate": "2011-10-17",
+    "endDate": "2011-10-16",
     "zone": {
       "min": 14.6,
       "max": 85.4,
@@ -134,7 +134,7 @@ const cbbiFiboZonesCycle = [
     }
   },
   {
-    "startDate": "2011-10-18",
+    "startDate": "2011-10-17",
     "endDate": "2011-12-12",
     "zone": {
       "min": 0,
@@ -162,6 +162,24 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2011-12-17",
+    "endDate": "2011-12-17",
+    "zone": {
+      "min": 14.6,
+      "max": 85.4,
+      "direction": "up"
+    }
+  },
+  {
+    "startDate": "2011-12-18",
+    "endDate": "2011-12-18",
+    "zone": {
+      "min": 0,
+      "max": 14.6,
+      "direction": "down"
+    }
+  },
+  {
+    "startDate": "2011-12-19",
     "endDate": "2013-04-09",
     "zone": {
       "min": 14.6,
@@ -207,7 +225,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2013-12-07",
-    "endDate": "2013-12-08",
+    "endDate": "2013-12-09",
     "zone": {
       "min": 85.4,
       "max": 90,
@@ -215,7 +233,7 @@ const cbbiFiboZonesCycle = [
     }
   },
   {
-    "startDate": "2013-12-09",
+    "startDate": "2013-12-10",
     "endDate": "2013-12-11",
     "zone": {
       "min": 90,
@@ -468,7 +486,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2021-05-06",
-    "endDate": "2021-05-11",
+    "endDate": "2021-05-10",
     "zone": {
       "min": 90,
       "max": 100,
@@ -476,7 +494,7 @@ const cbbiFiboZonesCycle = [
     }
   },
   {
-    "startDate": "2021-05-12",
+    "startDate": "2021-05-11",
     "endDate": "2021-05-13",
     "zone": {
       "min": 85.4,
@@ -540,7 +558,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2023-01-15",
-    "endDate": "2025-12-18",
+    "endDate": "2025-12-19",
     "zone": {
       "min": 14.6,
       "max": 85.4,
