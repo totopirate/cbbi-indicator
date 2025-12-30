@@ -1087,14 +1087,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2017-03-10",
-    "endDate": "2017-03-12",
+    "endDate": "2017-03-13",
     "zone": {
       "min": 38.2,
       "max": 50
     }
   },
   {
-    "startDate": "2017-03-13",
+    "startDate": "2017-03-14",
     "endDate": "2017-03-16",
     "zone": {
       "min": 50,
@@ -2647,14 +2647,14 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2024-03-18",
-    "endDate": "2024-03-19",
+    "endDate": "2024-03-18",
     "zone": {
       "min": 78.6,
       "max": 85.4
     }
   },
   {
-    "startDate": "2024-03-20",
+    "startDate": "2024-03-19",
     "endDate": "2024-03-26",
     "zone": {
       "min": 61.8,
