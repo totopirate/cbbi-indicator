@@ -594,7 +594,7 @@ const cbbiFiboZonesCycle = [
   },
   {
     "startDate": "2023-03-11",
-    "endDate": "2026-04-14",
+    "endDate": "2026-04-15",
     "zone": {
       "min": 14.6,
       "max": 85.4,
