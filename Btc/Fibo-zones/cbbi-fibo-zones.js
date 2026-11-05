@@ -2551,7 +2551,7 @@ const cbbiFiboZones = [
   },
   {
     "startDate": "2026-09-21",
-    "endDate": "2026-11-03",
+    "endDate": "2026-11-04",
     "zone": {
       "min": 50,
       "max": 61.8
